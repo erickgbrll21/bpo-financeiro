@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+:root {
+  --capa: #1e3b32;
+  --capa-escura: #16302a;
+  --capa-tinta: #d5e0da;
+  --capa-tinta-2: #a3b8ad;
+  --papel: #f2f4ef;
+  --folha: #ffffff;
+  --tinta: #1a2126;
+  --tinta-2: #4f5a53;
+  --filete: #d3d9d0;
+  --filete-forte: #1a2126;
+  --vermelho: #b3261e;
+  --vermelho-fundo: #fbeceb;
+  --carimbo: #3b3f8f;
+  --carimbo-fundo: #ecedf8;
+  --ambar: #8a5a00;
+  --ambar-fundo: #fbf3e2;
+  --verde: #1f7a4d;
+  --acao: #1e3b32;
+  --acao-hover: #2a5245;
+  --foco: #3b3f8f;
+}
+
+@theme inline {
+  --color-capa: var(--capa);
+  --color-capa-escura: var(--capa-escura);
+  --color-capa-tinta: var(--capa-tinta);
+  --color-capa-tinta-2: var(--capa-tinta-2);
+  --color-papel: var(--papel);
+  --color-folha: var(--folha);
+  --color-tinta: var(--tinta);
+  --color-tinta-2: var(--tinta-2);
+  --color-filete: var(--filete);
+  --color-vermelho: var(--vermelho);
+  --color-vermelho-fundo: var(--vermelho-fundo);
+  --color-carimbo: var(--carimbo);
+  --color-carimbo-fundo: var(--carimbo-fundo);
+  --color-ambar: var(--ambar);
+  --color-ambar-fundo: var(--ambar-fundo);
+  --color-acao: var(--acao);
+  --color-verde: var(--verde);
+  --font-sans: var(--font-public-sans);
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  caret-color: var(--carimbo);
+}
+
+::selection {
+  background: #c9cdee;
+  color: var(--tinta);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b9c2b8 transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--foco);
+  outline-offset: 2px;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  letter-spacing: -0.015em;
+}
+
+/* Rótulo em caixa-alta espaçada: cabeçalhos de coluna, legendas de campo e grupos de menu. */
+.rotulo {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+}
+
+.num {
+  font-variant-numeric: tabular-nums lining-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.negativo {
+  color: var(--vermelho);
+}
+
+/* Folha de livro: a superfície branca onde ficam tabelas e formulários. */
+.folha {
+  background: var(--folha);
+  border: 1px solid var(--filete);
+  border-radius: 6px;
+}
+
+/* Cartão do dashboard: superfície branca arredondada, sem sombra. */
+.cartao {
+  background: var(--folha);
+  border: 1px solid var(--filete);
+  border-radius: 12px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th {
+  padding: 0.5rem 0.625rem;
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+  border-bottom: 1px solid var(--filete-forte);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 0.5rem 0.625rem;
+  border-bottom: 1px solid var(--filete);
+  vertical-align: middle;
+}
+
+.tabela tbody tr:hover td {
+  background: #f7f9f5;
+}
+
+.tabela tbody tr:has(input[type="checkbox"]:checked) td {
+  background: var(--carimbo-fundo);
+}
+
+/* Fechamento contábil: o total encerra com traço duplo. */
+.tabela tfoot td {
+  padding: 0.625rem 0.625rem;
+  font-weight: 700;
+  border-top: 1px solid var(--filete-forte);
+  border-bottom: 4px double var(--filete-forte);
+}
+
+.fechamento {
+  border-bottom: 4px double var(--filete-forte);
+}
+
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.0625rem 0.4375rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.selo-vencida {
+  color: var(--vermelho);
+  background: var(--vermelho-fundo);
+}
+.selo-vence_7,
+.selo-a_vencer {
+  color: var(--ambar);
+  background: var(--ambar-fundo);
+}
+.selo-a_vencer {
+  background: transparent;
+}
+.selo-liquidada {
+  color: var(--carimbo);
+  background: var(--carimbo-fundo);
+  transform: rotate(-1.5deg);
+}
+.selo-cancelada {
+  color: var(--tinta-2);
+  text-decoration: line-through;
+}
+
+.campo {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.campo > span {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+}
+
+.entrada {
+  width: 100%;
+  min-height: 2.25rem;
+  padding: 0.375rem 0.625rem;
+  background: var(--folha);
+  border: 1px solid #b9c2b8;
+  border-radius: 4px;
+  color: var(--tinta);
+  font: inherit;
+  transition: border-color 120ms ease-out;
+}
+
+.entrada:hover {
+  border-color: var(--tinta-2);
+}
+
+.entrada:focus {
+  outline: none;
+  border-color: var(--foco);
+  box-shadow: 0 0 0 2px #c9cdee;
+}
+
+.entrada::placeholder {
+  color: #6b756d;
+}
+
+.entrada:disabled {
+  background: var(--papel);
+  color: var(--tinta-2);
+}
+
+.botao,
+.botao-claro,
+.botao-perigo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 2.25rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.botao {
+  background: var(--acao);
+  color: #fff;
+  border: 1px solid var(--acao);
+}
+.botao:hover {
+  background: var(--acao-hover);
+}
+
+.botao-claro {
+  background: var(--folha);
+  color: var(--acao);
+  border: 1px solid #b9c2b8;
+}
+.botao-claro:hover {
+  border-color: var(--acao);
+}
+
+.botao-perigo {
+  background: var(--folha);
+  color: var(--vermelho);
+  border: 1px solid #e3b4b0;
+}
+.botao-perigo:hover {
+  border-color: var(--vermelho);
+}
+
+.botao:disabled,
+.botao-claro:disabled,
+.botao-perigo:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.link {
+  color: var(--acao);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #9db3a8;
+}
+.link:hover {
+  text-decoration-color: var(--acao);
+}
+
+/* Filtros segmentados: a aba ativa é a página aberta. */
+.segmentos {
+  display: inline-flex;
+  border: 1px solid #b9c2b8;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--folha);
+}
+.segmentos a {
+  padding: 0.375rem 0.75rem;
+  font-weight: 600;
+  color: var(--tinta-2);
+  border-left: 1px solid var(--filete);
+  white-space: nowrap;
+}
+.segmentos a:first-child {
+  border-left: 0;
+}
+.segmentos a:hover {
+  color: var(--tinta);
+  background: #f7f9f5;
+}
+.segmentos a[aria-current="page"] {
+  background: var(--tinta);
+  color: #fff;
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tabela tfoot td,
+  .fechamento {
+    animation: fechar 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes fechar {
+  from {
+    border-bottom-color: transparent;
+  }
+}
